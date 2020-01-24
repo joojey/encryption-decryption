@@ -1,46 +1,61 @@
-public class Shift implements Algorithm {
+public class Shift implements Algorithm{
 
-    char a = 'a';
-    char z = 'z';
-    char A = 'A';
-    char Z = 'Z';
-    int size = 26;
+    private final String lowercaseAlphabet = "abcdefghijklmnopqrstuvwxyz";
+    private final String uppercaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public String encrypt (String data, int key, String output, String out, String alg) {
-        char[] chars = data.toCharArray();
+    public String encrypt (String data, int key, String output) {
+        StringBuilder result = new StringBuilder();
 
-        for (char item : chars) {
-            if (item >= a && item <= z) {
-                char shiftItem = (char) (((item - a + key) % size) + a);
-                output += shiftItem;
+        for (char chars: data.toCharArray()) {
+            int indexLowercase = lowercaseAlphabet.indexOf(chars);
+            int indexUppercase = uppercaseAlphabet.indexOf(chars);
 
-            } else if (item >= A && item <= Z) {
-                char shiftItem = (char) (((item - A + key) % size) + A);
-                output += shiftItem;
-
+            if (indexLowercase > -1) {
+                char replacement = lowercaseAlphabet.charAt((indexLowercase + key) % lowercaseAlphabet.length());
+                result.append(replacement);
+            } else if (indexUppercase > -1) {
+                char replacement = uppercaseAlphabet.charAt((indexUppercase + key) % uppercaseAlphabet.length());
+                result.append(replacement);
             } else {
-                output += item;
+                result.append(chars);
             }
         }
-        return output;
+        return result.toString();
     }
 
-    public String decrypt (String data, int key, String  output, String out, String alg) {
-        char[] chars = data.toCharArray();
+    public String decrypt (String data, int key, String  output) {
+        StringBuilder result = new StringBuilder();
 
-        for (char item : chars) {
-            if (item >= a && item <= z) {
-                char shiftItem = (char) (((item - a - key) % size) + a);
-                output += shiftItem;
+        for (char chars: data.toCharArray()) {
+            int indexLowercase = lowercaseAlphabet.indexOf(chars);
+            int indexUppercase = uppercaseAlphabet.indexOf(chars);
 
-            } else if (item >= A && item <= Z) {
-                char shiftItem = (char) (((item - A - key) % size) + A);
-                output += shiftItem;
+            if (indexLowercase > -1) {
+                int replacementKey = (indexLowercase - key) % lowercaseAlphabet.length();
+
+                if (replacementKey < 0) {
+                    replacementKey = lowercaseAlphabet.length() + replacementKey;
+                } else if (replacementKey > lowercaseAlphabet.length()) {
+                    replacementKey = replacementKey - lowercaseAlphabet.length();
+                }
+                char replacement = lowercaseAlphabet.charAt((replacementKey) % lowercaseAlphabet.length());
+                result.append(replacement);
+
+            } else if (indexUppercase > -1) {
+                int replacementKey = (indexUppercase - key) % uppercaseAlphabet.length();
+
+                if (replacementKey < 0) {
+                    replacementKey = uppercaseAlphabet.length() + replacementKey;
+                } else if (replacementKey > uppercaseAlphabet.length()) {
+                    replacementKey = replacementKey - uppercaseAlphabet.length();
+                }
+                char replacement = uppercaseAlphabet.charAt((replacementKey) % uppercaseAlphabet.length());
+                result.append(replacement);
 
             } else {
-                output += item;
+                result.append(chars);
             }
         }
-        return output;
+        return result.toString();
     }
 }

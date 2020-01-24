@@ -52,18 +52,18 @@ public class Main {
         switch (mode) {
             case "dec":
                 if (out.equals("")) {
-                    System.out.println(algorithm.decrypt(data, key, output, out, alg));
+                    System.out.println(algorithm.decrypt(data, key, output));
                     break;
                 } else {
-                    writeFile(algorithm.decrypt(data, key, output, out, alg), out);
+                    writeFile(algorithm.decrypt(data, key, output), out);
                     break;
                 }
             default:
                 if (out.equals("")) {
-                    System.out.println(algorithm.encrypt(data, key, output, out, alg));
+                    System.out.println(algorithm.encrypt(data, key, output));
                     break;
                 } else {
-                    writeFile(algorithm.encrypt(data, key, output, out, alg), out);
+                    writeFile(algorithm.encrypt(data, key, output), out);
                     break;
                 }
         }
