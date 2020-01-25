@@ -11,7 +11,6 @@ public class Main {
         String data = "";
         String out = "";
         String in = "";
-        String output = "";
         String alg = "";
 
         for (int i = 0; i < args.length; i ++) {
@@ -52,18 +51,18 @@ public class Main {
         switch (mode) {
             case "dec":
                 if (out.equals("")) {
-                    System.out.println(algorithm.decrypt(data, key, output));
+                    System.out.println(algorithm.decrypt(data, key));
                     break;
                 } else {
-                    writeFile(algorithm.decrypt(data, key, output), out);
+                    writeFile(algorithm.decrypt(data, key), out);
                     break;
                 }
             default:
                 if (out.equals("")) {
-                    System.out.println(algorithm.encrypt(data, key, output));
+                    System.out.println(algorithm.encrypt(data, key));
                     break;
                 } else {
-                    writeFile(algorithm.encrypt(data, key, output), out);
+                    writeFile(algorithm.encrypt(data, key), out);
                     break;
                 }
         }

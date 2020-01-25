@@ -1,20 +1,20 @@
-public class Shift implements Algorithm{
+public class Shift implements Algorithm {
 
-    private final String lowercaseAlphabet = "abcdefghijklmnopqrstuvwxyz";
-    private final String uppercaseAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private final String LOWERCASE_ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    private final String UPPERCASE_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    public String encrypt (String data, int key, String output) {
+    public String encrypt (String data, int key) {
         StringBuilder result = new StringBuilder();
 
         for (char chars: data.toCharArray()) {
-            int indexLowercase = lowercaseAlphabet.indexOf(chars);
-            int indexUppercase = uppercaseAlphabet.indexOf(chars);
+            int indexLowercase = LOWERCASE_ALPHABET.indexOf(chars);
+            int indexUppercase = UPPERCASE_ALPHABET.indexOf(chars);
 
             if (indexLowercase > -1) {
-                char replacement = lowercaseAlphabet.charAt((indexLowercase + key) % lowercaseAlphabet.length());
+                char replacement = LOWERCASE_ALPHABET.charAt((indexLowercase + key) % LOWERCASE_ALPHABET.length());
                 result.append(replacement);
             } else if (indexUppercase > -1) {
-                char replacement = uppercaseAlphabet.charAt((indexUppercase + key) % uppercaseAlphabet.length());
+                char replacement = UPPERCASE_ALPHABET.charAt((indexUppercase + key) % UPPERCASE_ALPHABET.length());
                 result.append(replacement);
             } else {
                 result.append(chars);
@@ -23,33 +23,33 @@ public class Shift implements Algorithm{
         return result.toString();
     }
 
-    public String decrypt (String data, int key, String  output) {
+    public String decrypt (String data, int key) {
         StringBuilder result = new StringBuilder();
 
         for (char chars: data.toCharArray()) {
-            int indexLowercase = lowercaseAlphabet.indexOf(chars);
-            int indexUppercase = uppercaseAlphabet.indexOf(chars);
+            int indexLowercase = LOWERCASE_ALPHABET.indexOf(chars);
+            int indexUppercase = UPPERCASE_ALPHABET.indexOf(chars);
 
             if (indexLowercase > -1) {
-                int replacementKey = (indexLowercase - key) % lowercaseAlphabet.length();
+                int replacementKey = (indexLowercase - key) % LOWERCASE_ALPHABET.length();
 
                 if (replacementKey < 0) {
-                    replacementKey = lowercaseAlphabet.length() + replacementKey;
-                } else if (replacementKey > lowercaseAlphabet.length()) {
-                    replacementKey = replacementKey - lowercaseAlphabet.length();
+                    replacementKey = LOWERCASE_ALPHABET.length() + replacementKey;
+                } else if (replacementKey > LOWERCASE_ALPHABET.length()) {
+                    replacementKey = replacementKey - LOWERCASE_ALPHABET.length();
                 }
-                char replacement = lowercaseAlphabet.charAt((replacementKey) % lowercaseAlphabet.length());
+                char replacement = LOWERCASE_ALPHABET.charAt((replacementKey) % LOWERCASE_ALPHABET.length());
                 result.append(replacement);
 
             } else if (indexUppercase > -1) {
-                int replacementKey = (indexUppercase - key) % uppercaseAlphabet.length();
+                int replacementKey = (indexUppercase - key) % UPPERCASE_ALPHABET.length();
 
                 if (replacementKey < 0) {
-                    replacementKey = uppercaseAlphabet.length() + replacementKey;
-                } else if (replacementKey > uppercaseAlphabet.length()) {
-                    replacementKey = replacementKey - uppercaseAlphabet.length();
+                    replacementKey = UPPERCASE_ALPHABET.length() + replacementKey;
+                } else if (replacementKey > UPPERCASE_ALPHABET.length()) {
+                    replacementKey = replacementKey - UPPERCASE_ALPHABET.length();
                 }
-                char replacement = uppercaseAlphabet.charAt((replacementKey) % uppercaseAlphabet.length());
+                char replacement = UPPERCASE_ALPHABET.charAt((replacementKey) % UPPERCASE_ALPHABET.length());
                 result.append(replacement);
 
             } else {

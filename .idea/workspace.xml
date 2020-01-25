@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e9845fd-594b-45b6-bc9d-caf0407a3149" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/encryption-decryption/Algorithm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/encryption-decryption/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/encryption-decryption/Shift.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/encryption-decryption/Unicode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/encryption-decryption/META-INF/encryption-decryption.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Algorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Shift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Unicode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Unicode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,10 +134,10 @@
       <screen x="0" y="0" width="3440" height="1410" />
     </state>
     <state width="3397" height="496" key="GridCell.Tab.1.right/0.0.3440.1410@0.0.3440.1410" timestamp="1579650108690" />
-    <state x="1416" y="691" key="com.intellij.ide.util.TipDialog" timestamp="1579873933306">
+    <state x="1416" y="691" key="com.intellij.ide.util.TipDialog" timestamp="1579909352462">
       <screen x="0" y="0" width="3440" height="1410" />
     </state>
-    <state x="1416" y="691" key="com.intellij.ide.util.TipDialog/0.0.3440.1410@0.0.3440.1410" timestamp="1579873933306" />
+    <state x="1416" y="691" key="com.intellij.ide.util.TipDialog/0.0.3440.1410@0.0.3440.1410" timestamp="1579909352462" />
     <state x="1462" y="334" key="refactoring.ChangeSignatureDialog" timestamp="1579649582119">
       <screen x="0" y="0" width="3440" height="1410" />
     </state>

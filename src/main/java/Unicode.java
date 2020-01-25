@@ -1,6 +1,7 @@
 public class Unicode implements Algorithm {
+    String output = "";
 
-    public String decrypt(String data, int key, String output) {
+    public String decrypt(String data, int key) {
         for (char item : data.toCharArray()) {
             char shiftItem = (char) (item - key);
             output += shiftItem;
@@ -8,7 +9,7 @@ public class Unicode implements Algorithm {
         return output;
     }
 
-    public String encrypt(String data, int key, String output) {
+    public String encrypt(String data, int key) {
         for (char item : data.toCharArray()) {
             char shiftItem = (char) (item + key);
             output += shiftItem;
